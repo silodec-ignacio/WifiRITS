@@ -1,0 +1,109 @@
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/findFragmentFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.FindFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/scanTextContainer"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/PrimaryDark"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/scanningTXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:textColor="@color/PrimaryText"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scanTextContainer">
+
+            <Button
+                android:id="@+id/buttonScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/PrimaryLight"
+                android:text="Scan"
+                android:textColor="@color/PrimaryText" />
+
+            <Button
+                android:id="@+id/buttonQuit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/PrimaryLight"
+                android:text="Quit Scan"
+                android:textColor="@color/PrimaryText" />
+        </TableRow>
+
+        <ListView
+            android:id="@+id/wifiList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/tableRow"
+            tools:layout_editor_absoluteX="0dp"
+            tools:ignore="MissingConstraints">
+
+        </ListView>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/heartBeat"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@android:color/holo_red_dark"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/scanningAnimBar"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary_text_material_dark"
+        android:visibility="invisible" />
+
+</RelativeLayout >

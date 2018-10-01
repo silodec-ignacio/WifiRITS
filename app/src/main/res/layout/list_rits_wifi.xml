@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/PrimaryDark"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
+
+
+    <ImageView
+        android:id="@+id/listRitsImage"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="SSID Graphic"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        app:srcCompat="@drawable/wifi_rits"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/listRitsSSID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listRitsImage"
+        android:layout_toEndOf="@+id/listRitsImage"
+        android:layout_toRightOf="@+id/listRitsImage"
+        android:paddingLeft="10dp"
+        android:text="RITS SSID"
+        android:textColor="@color/PrimaryText"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/listRitsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/listRitsImage"
+        android:layout_toEndOf="@+id/listRitsImage"
+        android:layout_toRightOf="@+id/listRitsImage"
+        android:paddingLeft="10dp"
+        android:text="Driver info goes here"
+        android:textColor="@color/PrimaryText"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>
