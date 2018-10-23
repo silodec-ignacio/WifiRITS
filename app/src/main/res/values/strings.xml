@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">SI Lodec WiFiRITS</string>
+
+    <string name="menu_find">Find</string>
+    <string name="menu_connect">Connect</string>
+    <string name="menu_connecting">Connecting</string>
+    <string name="menu_connected">Disconnect</string>
+    <string name="menu_about">Help &amp; About</string>
+    <string name="menu_custom">Customise</string>
+    <string name="menu_favourite">This is Your Favourite WiFiRITS</string>
+    <string name="menu_unfavourite">This is NOT Your Favourite WiFiRITS</string>
+    <string name="menu_back">Go to Main Screen</string>
+    <string name="menu_version">V 0.0.14</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_rits_fragment">Hello blank RITS fragment</string>
+    <string name="hello_connect_fragment">Hello blank connect fragment</string>
+    <string name="hello_idle_fragment">Hello blank idle fragment</string>
+    <string name="hello_about_fragment">Hello blank about fragment</string>
+    <string name="hello_find_fragment">Hello blank find fragment</string>
+    <string name="hello_custom_fragment">Hello blank customise fragment</string>
+
+    <string name="custom_cb_favourite">Set as Favourite</string>
+    <string name="custom_btn_ok">Save</string>
+    <string name="custom_btn_cancel">Cancel</string>
+
+    <string name="mode_connected">Connected</string>
+    <string name="mode_connecting">Connecting</string>
+    <string name="mode_connecting_b">Connecting&#8230;</string>
+    <string name="mode_disconnected">Disconnected</string>
+    <string name="mode_favourite">Favourite</string>
+    <string name="mode_unassigned">not assigned</string>
+
+    <string name="titlebar_driver_id">DRIVER_ID</string>
+    <string name="titlebar_truck_id">TRUCK_ID</string>
+    <string name="titlebar_favourite">FAVOURITE_ID</string>
+    <string name="connecting_to">Connecting to</string>
+
+    <string name="location_dialog">This version of Android requires the Location service to be enabled to locate Wifi RITS units.  Please set Location to ON.</string>
+    <string name="location_dialog_change">Change</string>
+    <string name="location_dialog_cancel">Cancel</string>
+    <string name="url_rits_config">192.168.4.1/setup_info</string>
+    <string name="url_rits_data">192.168.4.1/rits</string>
+    <string name="url_rits_edit">192.168.4.1/edit</string>
+    <string name="url_rits_image">http://192.168.4.1/truckPic.jpg</string>
+    <string name="rits_directory">RITS_Images</string>
+
+    <!--Temp, for annoying hardcoded string should use@string method // Remove when done-->
+    <string name="ch1">ch1</string>
+    <string name="ch2">ch2</string>
+    <string name="ch3">ch3</string>
+    <string name="ch4">ch4</string>
+    <string name="gp1">gp1</string>
+    <string name="gp2">gp2</string>
+    <string name="total">total</string>
+
+    <string name="NTC">   </string>
+
+    <string name="imageRits">RitsPic</string>
+
+    <string name="Fleet">Fleet</string>
+    <string name="Driver">Driver</string>
+    <string name="group">group</string>
+    <string name="noFavRitsFound">No Favourite RITS Found. Press the Find Button to Scan for New Devices</string>
+    <string name="welcomeText">Welcome to the SI Lodec Wi-FiRITS (Remote.Information.Transfer.System). \n If you need any help Getting around Press the Three Dots Next to the FIND button, Then Press the "Help &amp; About" Option in the drop down menu.</string>
+    <string name="connectToFavText">A Favourite RITS has Been Found. Press the Connect button to Connect, or Press the Find Button to Scan for New Devices</string>
+    <string name="customise_dialog">To Customise the RITS Device, Press the CUSTOMISE button. This will take you to a Web page where you can setup and change the RITS settings. The Web page will ask you for a code, This is the Code that
+    was Given to you when The RITS Device was installed</string>
+    <string name="about_dialog2">Welcome to the SI Lodec WiFi RITS Application. If you need any Help Navigating or just want to know more about us click the HELP button below, this will take you to the web page version of the app
+    and will redirect you to the help page.</string>
+    <string name="error_connectionFailed">"Error, Connection Failed please make sure you are connected to the correct device, then try again."</string>
+    <string name="about_version">V0.0.0</string>
+
+    <!--END-->
+
+</resources>

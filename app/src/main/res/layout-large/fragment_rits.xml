@@ -1,0 +1,264 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.RitsFragment">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_A"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageRits"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:background="@color/colorDarker"
+            android:contentDescription="@string/imageRits"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/place_holder" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/colorDarker"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:background="@color/colorDarker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageRits">
+
+            <TextView
+                android:id="@+id/groupChannel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_GP"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel7"
+                app:layout_constraintHorizontal_bias="0.558"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel5"
+                app:layout_constraintTop_toTopOf="@+id/groupChannel1" />
+
+            <TextView
+                android:id="@+id/groupChannel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_GP"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel3"
+                app:layout_constraintHorizontal_bias="0.532"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel1"
+                app:layout_constraintTop_toBottomOf="@+id/dataChannel2" />
+
+            <TextView
+                android:id="@+id/dataTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_TT"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/groupChannel2"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toEndOf="@+id/groupChannel1" />
+
+            <TextView
+                android:id="@+id/dataChannel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dataChannel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel1"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel1" />
+
+            <TextView
+                android:id="@+id/dataChannel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel2"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel2" />
+
+            <TextView
+                android:id="@+id/dataChannel4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel3"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel3" />
+
+            <TextView
+                android:id="@+id/dataChannel5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel4"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel4" />
+
+            <TextView
+                android:id="@+id/dataChannel6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toStartOf="@+id/dataChannel7"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel5"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel5" />
+
+            <TextView
+                android:id="@+id/dataChannel7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_text_material_dark"
+                android:textSize="@dimen/fontSize_xLarge_CH"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/dataChannel6"
+                app:layout_constraintTop_toTopOf="@+id/dataChannel6" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="427dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/positionChannel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ch1"
+                app:layout_constraintEnd_toStartOf="@+id/positionChannel2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/positionChannel2" />
+
+            <TextView
+                android:id="@+id/positionChannel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ch2"
+                app:layout_constraintEnd_toStartOf="@+id/positionChannel3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/positionChannel1"
+                app:layout_constraintTop_toTopOf="@+id/positionChannel3" />
+
+            <TextView
+                android:id="@+id/positionChannel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ch3"
+                app:layout_constraintEnd_toStartOf="@+id/positionChannel4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/positionChannel2"
+                app:layout_constraintTop_toTopOf="@+id/positionChannel4" />
+
+            <TextView
+                android:id="@+id/positionChannel4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ch4"
+                app:layout_constraintEnd_toStartOf="@+id/infoGroup"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/positionChannel3"
+                app:layout_constraintTop_toTopOf="@+id/infoGroup" />
+
+            <TextView
+                android:id="@+id/infoFleet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Fleet"
+                app:layout_constraintEnd_toStartOf="@+id/infoTotal"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/infoDriver"
+                app:layout_constraintTop_toTopOf="@+id/infoTotal" />
+
+            <TextView
+                android:id="@+id/infoDriver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Driver"
+                app:layout_constraintEnd_toStartOf="@+id/infoFleet"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/infoGroup"
+                app:layout_constraintTop_toTopOf="@+id/infoFleet" />
+
+            <TextView
+                android:id="@+id/infoTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/total"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/infoFleet"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/infoGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/group"
+                app:layout_constraintEnd_toStartOf="@+id/infoDriver"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/positionChannel4"
+                app:layout_constraintTop_toTopOf="@+id/infoDriver" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
