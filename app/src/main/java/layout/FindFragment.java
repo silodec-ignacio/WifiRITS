@@ -51,6 +51,7 @@ public class FindFragment extends Fragment{
     private boolean mFavourite;
 
     private FindFragmentListener mListener;
+
     private List<RitsData> mRitsDataList = new ArrayList<>();
     private RitsDataAdapter mRitsAdapter;
 
@@ -79,16 +80,7 @@ public class FindFragment extends Fragment{
             //CheckBox cbFavourite = customView.findViewById(R.id.cbFavourite);
             //cbFavourite.setChecked(favourite);
         }
-/*
-        final CheckBox cbFavourite = customView.findViewById(R.id.cbFavourite);
-        cbFavourite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                mFavourite = isChecked;
-                Toast.makeText(customView.getContext(), "Favourite is " + mFavourite, Toast.LENGTH_SHORT).show();
-            }
-        });
-      */
+
 
         ListView wifiList = findView.findViewById(R.id.wifiList);
         wifiList.setAdapter(this.mRitsAdapter);
@@ -118,9 +110,7 @@ public class FindFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 RitsData rits = mRitsAdapter.getItem(i);
-                Log.i(WIFI_RITS, "ritsSSID ## " + rits.getRitsSSID());
-                Log.i(WIFI_RITS, "i $$ " + i);
-                Log.i(WIFI_RITS, "rits= << " + rits + " >>");
+
                 connectToRits(rits);
             }
         });
@@ -315,7 +305,7 @@ public class FindFragment extends Fragment{
         //getActivity().unregisterReceiver(wifi_receiver);
         mListener.onCustomFinishSave(mFavourite);
     }
-    private void quitScanning() {
+    public void quitScanning() {
         if (mListener == null) {
             throw new AssertionError();
         }

@@ -30,7 +30,7 @@ public class ConnectFragment extends Fragment {
     public static final String WIFI_CONNECT = "WIFI_CONNECT";
     private ConnectFragmentListener mListener;
     private boolean mWaitingReconnect;
-    private Toolbar mToolbar;
+
     public ConnectFragment() {
     }
 
@@ -83,7 +83,6 @@ public class ConnectFragment extends Fragment {
             TextView tvUnitName = connectView.findViewById(R.id.textUnitName);
             tvUnitName.setText(sbUnitName);
 
-
             WifiConfiguration wifiConfig = new WifiConfiguration();
             wifiConfig.SSID = rits.getRitsSSID();
             wifiConfig.preSharedKey = RITS_PASSWORD;
@@ -106,7 +105,6 @@ public class ConnectFragment extends Fragment {
         if (mListener == null) {
             throw new AssertionError();
         }
-
 
         mListener.onConnectFinished(ritsConnected);
 

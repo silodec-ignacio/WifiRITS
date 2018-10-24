@@ -2,19 +2,25 @@ package layout;
 
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowId;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.silodec.wifirits.BasicImageDownloader;
 import com.silodec.wifirits.JSONParser;
@@ -32,6 +38,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Locale;
 
+import static com.silodec.wifirits.MainActivity.ConnectMode.CONNECT_CONNECTED;
+import static com.silodec.wifirits.MainActivity.ConnectMode.CONNECT_DISCONNECTED;
+import static com.silodec.wifirits.MainActivity.FRAGMENT_IDLE;
+import static com.silodec.wifirits.MainActivity.WIFI_RITS;
+import static com.silodec.wifirits.MainActivity.mConnectMode;
+import static com.silodec.wifirits.MainActivity.mMenuMode;
 import static com.silodec.wifirits.model.RitsData.PARCEL_RITS_KEY;
 
 public class RitsFragment extends Fragment {
@@ -71,10 +83,14 @@ public class RitsFragment extends Fragment {
     String savedData3 = "0 kg";
     String savedData4 = "0 kg";
 
+    FrameLayout idleFrameLayout;
+
     boolean saveData1;
     boolean saveData2;
     boolean saveData3;
     boolean saveData4;
+
+    boolean isFavouriteRits;
 
     String[] mChan = {mChannel1, mChannel2, mChannel3, mChannel4};
     String[] captureChan = {captureChan1, captureChan2, captureChan3, captureChan4};
@@ -85,6 +101,9 @@ public class RitsFragment extends Fragment {
     int checkDataDoubler = 0;
 
     public String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/FavRITS";
+
+    private FindFragment.FindFragmentListener mListener;
+
 
     public RitsFragment() {
     }
@@ -99,6 +118,15 @@ public class RitsFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (!(context instanceof FindFragment.FindFragmentListener)) throw new AssertionError();
+        mListener = (FindFragment.FindFragmentListener) context;
+    }
+
+
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -110,9 +138,13 @@ public class RitsFragment extends Fragment {
 
         mImageView = ritsView.findViewById(R.id.imageRits);
 
+        FrameLayout idleFrameLayout =  ritsView.findViewById(R.id.idleFragmentFrame);
+
         getRitsConfig();
+
         getRitsImage();
         getRitsData();
+        isFavouriteRits();
 
         mRits.setRitsDriverName(mDriver);
         mRits.setRitsTruckNumber(mFleet);
@@ -121,13 +153,44 @@ public class RitsFragment extends Fragment {
         ActivityCompat.invalidateOptionsMenu(getActivity());
         return ritsView;
 
-        /***********************************/
 
 
-
-
-        /**********************************/
     }
+
+
+
+    public boolean isFavouriteRits(){
+        if(mDriver == null && mFleet == null){
+
+            isFavouriteRits = false;
+
+            mMenuMode = MainActivity.MenuMode.MENU_MODE_IDLE;
+            mConnectMode = MainActivity.ConnectMode.CONNECT_DISCONNECTED;
+
+            IdleFragment idleFragment = new IdleFragment();
+            Fragment newFragment = new Fragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragmentFrame, idleFragment, FRAGMENT_IDLE);
+            transaction.addToBackStack(null);
+
+            transaction.commit();
+
+        }
+        else{
+            isFavouriteRits = true;
+        }
+        return isFavouriteRits;
+    }
+
+    public void quitScanning() {
+        if (mListener == null) {
+            throw new AssertionError();
+        }
+        //getActivity().unregisterReceiver(wifi_receiver);
+        mListener.onFindFinishQuit();
+    }
+
 
     public String FavGetRitsSSID() {
         rits.setRitsSSID(mFavWifiRITS);
@@ -174,6 +237,7 @@ public class RitsFragment extends Fragment {
         try {
             mDriver = json.getString("owner");
             mFleet = json.getString("fleet");
+
             JSONArray channelConfig = json.getJSONArray("ch_settings");
             for (int i = 1; i < 5; i++){
                 int loc = 1;
@@ -191,6 +255,8 @@ public class RitsFragment extends Fragment {
         } catch (JSONException e){
             e.printStackTrace();
         }
+
+
     }
 
     private void getRitsImage() {
@@ -336,6 +402,8 @@ public class RitsFragment extends Fragment {
         }catch (NullPointerException e){
             e.printStackTrace();
         }
+
+
     }
 
     public void updateRitsData(){
@@ -369,6 +437,8 @@ public class RitsFragment extends Fragment {
             positionChan4.setText("Chan 4: " + Integer.toString(mChannelInfo[4]) + " ");
             infoGroup.setText("Grouping: " + Integer.toString(mChannelInfo[0]) + " ");
             infoTotal.setText("Total: " + Integer.toString(mChannelInfo[5]) + " ");
+
+
 
             TextView[] dataChan = {dataChan0, dataChan1, dataChan2, dataChan3, dataChan4, dataChan5, dataChan6, dataChan7};
 

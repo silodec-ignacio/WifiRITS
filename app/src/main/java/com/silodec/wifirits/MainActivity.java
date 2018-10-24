@@ -105,8 +105,6 @@ public class MainActivity extends AppCompatActivity implements
 
     /************************************/
 
-    public TextView textView;
-
     public String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/FavRITS";
     File JSONfile = new File(path + "/FavRitsFile.json");
     List<RitsData> mRitsData;
@@ -166,8 +164,6 @@ public class MainActivity extends AppCompatActivity implements
 
     private Toolbar mToolbar;
 
-    private WebView webView;
-
 
     @RequiresApi(api = M)
     @Override
@@ -191,6 +187,8 @@ public class MainActivity extends AppCompatActivity implements
         String filepath ="/storage/emulated/0/Android/data/com.silodec.wifirits/files/favSSID.txt";
 
         FileInputStream fis;
+
+
 
         try {
             fis = new FileInputStream(filepath);
@@ -233,6 +231,16 @@ public class MainActivity extends AppCompatActivity implements
 
         FavLoad();
 
+
+    }
+
+    public Boolean BackToIdle(Boolean isActualRits){
+        if(isActualRits.equals(false)){
+            mMenuMode = MainActivity.MenuMode.MENU_MODE_IDLE;
+            onResumeFragments();
+        }
+
+        return isActualRits;
     }
 
 
@@ -296,7 +304,9 @@ public class MainActivity extends AppCompatActivity implements
 
             if(JSONfile.exists()){
                 ismRitsHasFavourite = true;
+                Log.i(WIFI_RITS, "mRits++ " + mRits);
                 onFindFinishConnect(rits);
+                Log.i(WIFI_RITS, "mRits{{ " + mRits);
 
             }
 
@@ -497,25 +507,11 @@ public class MainActivity extends AppCompatActivity implements
                     chkFav.setText(getString(R.string.menu_unfavourite));
                 }
 
-
-/*
-                if(ismRitsHasFavourite = true){
-                    chkFav.setChecked(true);
-                    chkFav.setText(getString(R.string.menu_favourite));
-                }
-
-                else if(ismRitsHasFavourite = false){
-                    chkFav.setChecked(false);
-                    chkFav.setText(getString(R.string.menu_unfavourite));
-                }
-*/
             }
             catch (FileNotFoundException e){e.printStackTrace();}
             catch(ParseException e){e.printStackTrace();}
             catch (IOException e){e.printStackTrace();}
             catch (Exception e){e.printStackTrace();}
-
-
 
 
             chkFav.setOnClickListener(new View.OnClickListener() {
@@ -624,9 +620,12 @@ public class MainActivity extends AppCompatActivity implements
 
 // set drop down menus.
         if(mMenuMode.equals(MENU_MODE_CUSTOM)){
-
             mToolbar.setVisibility(View.GONE);
 
+        }
+
+        else if(!mMenuMode.equals(MENU_MODE_CUSTOM)){
+            mToolbar.setVisibility(View.VISIBLE);
 
         }
         switch (mMenuMode) {//when its not connected to rits
@@ -672,10 +671,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 File dir = new File(path);
                 dir.mkdirs();
-/*
-                final TextView chkFav = mToolbar.findViewById(R.id.toolbar_favourite);
-                chkFav.setWidth(0);
-*/
+
 
                 /**********************************/
 
@@ -779,9 +775,6 @@ public class MainActivity extends AppCompatActivity implements
                 if (menu.findItem(R.id.action_find) != null) {
                     menu.removeItem(R.id.action_find);
                 }
-
-
-
 
             case MENU_MODE_ABOUT:
 
@@ -998,7 +991,7 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 //BM: BUG: reconnection bug
-    private void goBack() {
+    public void goBack() {
         // TODO fix this when reconnecting with known rits from idle
 
         if (mMenuMode == MenuMode.MENU_MODE_RITS || mMenuMode == MenuMode.MENU_MODE_IDLE) return;
